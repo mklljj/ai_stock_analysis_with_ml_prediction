@@ -1,0 +1,21 @@
+# Core Web Framework
+Flask
+Flask-Cors
+
+# Data Handling & ML
+pandas
+numpy
+scikit-learn
+lightgbm
+xgboost
+joblib
+
+# API Clients & Web Requests
+requests
+praw
+newsapi-python
+finnhub-python
+textblob
+
+# Environment Variables
+python-dotenv
