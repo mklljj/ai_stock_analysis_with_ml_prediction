@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Stock Analyzer</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+</head>
+<body>
+    <div class="container">
+        <h1>🤖 AI Stock Analyzer</h1>
+        <p class="subtitle">Technical + Sentiment + ML Predictions</p>
+        
+        <div class="form-container">
+            <input type="text" id="stockCode" placeholder="Stock Code (e.g., AAPL)" autocomplete="off">
+            <select id="marketType">
+                <option value="US">US Market</option>
+                <option value="HK">Hong Kong</option>
+                <option value="A-share">China A-Share</option>
+            </select>
+            <div class="toggle-container">
+                <label class="checkbox-container">
+                    <input type="checkbox" id="includeSentiment" checked>
+                    <span>Sentiment</span>
+                </label>
+                <label class="checkbox-container">
+                    <input type="checkbox" id="includePredictions" checked>
+                    <span>ML Predictions</span>
+                </label>
+            </div>
+            <button id="analyzeBtn" class="analyze-btn">Analyze Stock</button>
+        </div>
+        
+        <div class="warning-box">
+            ⚠️ ML predictions require 50+ data points. US stocks work best.
+        </div>
+
+        <div id="loader" class="hidden">
+            <div class="spinner"></div>
+            <p class="loader-text">Training ML models... 15-30 seconds</p>
+        </div>
+
+        <div id="results" class="hidden">
+            <h2>📊 Results</h2>
+            
+            <div class="section">
+                <h3>💰 Stock Info</h3>
+                <div class="stock-data-grid">
+                    <div class="data-card">
+                        <label>Ticker</label>
+                        <span id="ticker" class="value">-</span>
+                    </div>
+                    <div class="data-card">
+                        <label>Price</label>
+                        <span id="currentPrice" class="value">-</span>
+                    </div>
+                    <div class="data-card">
+                        <label>Change</label>
+                        <span id="priceChange" class="value">-</span>
+                    </div>
+                    <div class="data-card">
+                        <label>Trend</label>
+                        <span id="trend" class="value trend-badge">-</span>
+                    </div>
+                    <div class="data-card">
+                        <label>RSI</label>
+                        <span id="rsi" class="value">-</span>
+                    </div>
+                    <div class="data-card">
+                        <label>Volume</label>
+                        <span id="volume" class="value">-</span>
+                    </div>
+                </div>
+            </div>
+
+            <div id="predictionsSection" class="section prediction-section hidden">
+                <h3>🔮 ML Predictions</h3>
+                
+                <div class="ensemble-prediction">
+                    <div class="ensemble-label">Ensemble Prediction</div>
+                    <div id="ensemblePrediction" class="ensemble-value">-</div>
+                    <span id="ensembleDirection" class="ensemble-direction">-</span>
+                    <div style="margin-top: 0.5rem; font-size: 0.85rem; color: #666;">
+                        <span id="predictionPeriod">-</span>
+                    </div>
+                </div>
+                
+                <h4>Individual Models:</h4>
+                <div class="models-grid" id="modelsGrid"></div>
+                
+                <div class="prediction-meta">
+                    <div class="meta-item">
+                        <div class="meta-label">Training</div>
+                        <div class="meta-value" id="trainingSamples">-</div>
+                    </div>
+                    <div class="meta-item">
+                        <div class="meta-label">Test</div>
+                        <div class="meta-value" id="testSamples">-</div>
+                    </div>
+                    <div class="meta-item">
+                        <div class="meta-label">Features</div>
+                        <div class="meta-value" id="featureCount">-</div>
+                    </div>
+                </div>
+                
+                <div class="prediction-note">
+                    💡 Predictions based on 4 ML models. Positive = price increase expected.
+                </div>
+            </div>
+
+            <div class="section chart-section">
+                <h3>📈 Price Chart</h3>
+                <div class="chart-controls">
+                    <button class="chart-btn active" data-period="all">All</button>
+                    <button class="chart-btn" data-period="1h">1H</button>
+                    <button class="chart-btn" data-period="3h">3H</button>
+                    <button class="chart-btn" data-period="today">Today</button>
+                </div>
+                <div class="chart-container">
+                    <canvas id="priceChart"></canvas>
+                </div>
+            </div>
+
+            <div id="sentimentSection" class="section hidden">
+                <h3>📰 Sentiment</h3>
+                <div class="sentiment-container">
+                    <div class="sentiment-score-box">
+                        <div class="sentiment-label">Overall</div>
+                        <div id="sentimentLabel" class="sentiment-value">-</div>
+                        <div class="sentiment-score-bar">
+                            <div id="sentimentBar" class="sentiment-bar-fill"></div>
+                        </div>
+                        <div id="sentimentScore" class="sentiment-score-text">-</div>
+                    </div>
+                    <div class="sentiment-details">
+                        <h4>Sources:</h4>
+                        <pre id="sentimentAnalysis" class="sentiment-text">-</pre>
+                    </div>
+                </div>
+            </div>
+
+            <div class="section">
+                <h3>🤖 AI Analysis</h3>
+                <div class="analysis-type-badge" id="analysisTypeBadge">
+                    <span id="analysisType">Technical</span>
+                </div>
+                <pre id="aiAnalysis" class="ai-analysis-text">Loading...</pre>
+            </div>
+
+            <div class="model-info">
+                <small>
+                    <span id="modelProvider">Gemini</span> | 
+                    <span id="mlModels"></span>
+                </small>
+            </div>
+        </div>
+
+        <div id="errorDisplay" class="error-box hidden">
+            <strong>⚠️ Error:</strong>
+            <p id="errorMessage"></p>
+        </div>
+
+        <div class="footer">
+            <p>Built with Flask, scikit-learn, XGBoost, LightGBM, Gemini</p>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
