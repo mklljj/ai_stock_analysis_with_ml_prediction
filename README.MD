@@ -109,4 +109,4 @@ Follow these instructions to get a local copy up and running.
 
 * **Bojian Zhou** - [neofastio@gmail.com](mailto:neofastio@gmail.com)
 * **LinkedIn**: [https://www.linkedin.com/in/bojian-zhou-62391637b/](https://www.linkedin.com/in/bojian-zhou-62391637b/)
-* **Project Link**: [https://github.com/mklljj/ai-stock-analyzer](https://github.com/mklljj/ai-stock-analyzer)
+* **Project Link**: [https://github.com/mklljj/ai_stock_analysis_with_ml_prediction](https://github.com/mklljj/ai_stock_analysis_with_ml_prediction)
