@@ -39,7 +39,7 @@ Follow these instructions to get a local copy up and running.
 
 1.  **Clone the repository:**
     ```sh
-    git clone [https://github.com/mklljj/ai-stock-analyzer.git](https://github.com/mklljj/ai-stock-analyzer.git)
+    git clone [https://github.com/mklljj/ai_stock_analysis_with_ml_prediction.git](https://github.com/mklljj/ai_stock_analysis_with_ml_prediction.git)
     cd ai-stock-analyzer
     ```
 
