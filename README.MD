@@ -3,6 +3,7 @@
 An advanced stock analysis tool that combines technical indicators, multi-source sentiment analysis, and machine learning predictions to provide a comprehensive, AI-generated summary of a stock's potential.
 
 
+
 ## ✨ Core Features
 
 * **Technical Analysis**: Automatically calculates key indicators like **SMA**, **MACD**, and **RSI** from real-time stock data.
@@ -13,6 +14,8 @@ An advanced stock analysis tool that combines technical indicators, multi-source
 * **Machine Learning Predictions**: Trains four different regression models (**Linear Regression, Random Forest, LightGBM, XGBoost**) on historical data to predict the stock's price change over the next 25 minutes.
 * **AI-Powered Summary**: Uses **Google's Gemini model** to synthesize all the technical, sentiment, and ML data into a concise, human-readable analysis and trading strategy.
 * **Interactive UI**: A clean, responsive frontend with an interactive price chart (powered by Chart.js) to visualize historical data.
+
+---
 
 ## 🛠️ Tech Stack
 
@@ -36,7 +39,7 @@ Follow these instructions to get a local copy up and running.
 
 1.  **Clone the repository:**
     ```sh
-    git clone [https://github.com/YOUR_USERNAME/ai-stock-analyzer.git](https://github.com/YOUR_USERNAME/ai-stock-analyzer.git)
+    git clone [https://github.com/mklljj/ai-stock-analyzer.git](https://github.com/mklljj/ai-stock-analyzer.git)
     cd ai-stock-analyzer
     ```
 
@@ -99,3 +102,11 @@ Follow these instructions to get a local copy up and running.
 └── README.md               # This file
 ```
 *Note: The provided `config.py` file is currently not used by the application but can be integrated for more dynamic ML model configuration.*
+
+---
+
+## 📧 Contact
+
+* **Bojian Zhou** - [neofastio@gmail.com](mailto:neofastio@gmail.com)
+* **LinkedIn**: [https://www.linkedin.com/in/bojian-zhou-62391637b/](https://www.linkedin.com/in/bojian-zhou-62391637b/)
+* **Project Link**: [https://github.com/mklljj/ai-stock-analyzer](https://github.com/mklljj/ai-stock-analyzer)
