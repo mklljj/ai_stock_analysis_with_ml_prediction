@@ -22,6 +22,20 @@ An advanced stock analysis tool that combines technical indicators, multi-source
 
 ---
 
+##  🎬 Demo
+
+### Main Interface
+![Main Interface](screenshots/main-interface.png)
+
+### Price Chart with Technical Indicators
+![Price Chart](screenshots/price-chart.png)
+
+### Multi-Source Sentiment Analysis
+![Sentiment Analysis](screenshots/sentiment-analysis.png)
+
+---
+
+
 ## 🛠️ Tech Stack
 
 * **Backend**: Flask (Python)
@@ -108,10 +122,21 @@ Follow these instructions to get a local copy up and running.
 ```
 *Note: The provided `config.py` file is currently not used by the application but can be integrated for more dynamic ML model configuration.*
 
+## 🙏 Acknowledgments
+
+- [Alpha Vantage](https://www.alphavantage.co/) - Stock market data
+- [Google Gemini](https://ai.google.dev/) - AI analysis
+- [Finnhub](https://finnhub.io/) - Premium financial news
+- [NewsAPI](https://newsapi.org/) - News articles
+- [Reddit API](https://www.reddit.com/dev/api/) - Social media data
+- [Chart.js](https://www.chartjs.org/) - Beautiful charts
+- [TextBlob](https://textblob.readthedocs.io/) - Sentiment analysis
+
+
 ---
 
 ## 📧 Contact
 
-* **Bojian Zhou** - [neofastio@gmail.com](mailto:neofastio@gmail.com)
+* **ZHOU BOJIAN** - [neofastio@gmail.com](mailto:neofastio@gmail.com)
 * **LinkedIn**: [https://www.linkedin.com/in/bojian-zhou-62391637b/](https://www.linkedin.com/in/bojian-zhou-62391637b/)
 * **Project Link**: [https://github.com/mklljj/ai_stock_analysis_with_ml_prediction](https://github.com/mklljj/ai_stock_analysis_with_ml_prediction)
