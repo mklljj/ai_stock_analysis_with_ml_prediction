@@ -1,5 +1,10 @@
 # 🤖 AI Stock Analyzer
 
+![Python](https://img.shields.io/badge/Python-3.8+-blue.svg)
+![Flask](https://img.shields.io/badge/Flask-3.0.0-green.svg)
+![License](https://img.shields.io/badge/license-MIT-green.svg)
+![Status](https://img.shields.io/badge/status-active-success.svg)
+
 An advanced stock analysis tool that combines technical indicators, multi-source sentiment analysis, and machine learning predictions to provide a comprehensive, AI-generated summary of a stock's potential.
 
 
